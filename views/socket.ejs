@@ -130,7 +130,7 @@
       // input value 존재시
       if (input.value) {
         // user의 메세지를 'chat message'로 서버로 보낸다(?) 
-        notify(input.value);
+        //notify(input.value);
         user.emit('chat message', { name: userName, msg: input.value, room: roomName });
         input.value = '';
       }
