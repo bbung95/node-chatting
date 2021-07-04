@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const PORT = process.env.PORT
 const http = require("http");
 const server = http.createServer(app);
 const { Server } = require("socket.io");
@@ -7,7 +8,6 @@ const io = new Server(server);
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const { v4: uuidV4 } = require("uuid");
-
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 // for parsing application/json
@@ -142,7 +142,7 @@ io.on("connection", (user) => {
 });
 
 // 3000포트로 접속시 콘솔 출력
-server.listen(3000, () => {
+server.listen(PORT, () => {
   console.log("listening on * : 3000");
 });
 
